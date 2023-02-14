@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #req{
+        color: red;
+        margin-left: 40px;
+        font-size: 14px;
+        font-weight: 400px;
+        display: none;
+    }
+</style>
+<body>
+
+    <form action="" id="form" onclick="return vailate()">
+        <label for="">name</label>
+        <input id="feild" type="text"> 
+        <button id="btn" onclick="">Save</button> <br>
+        <span id="req">this name is required</span>
+    </form>
+
+    <!-- <div id="app"></div> -->
+    <!-- <p id="p" >Hello</p> -->
+    <!-- 
+        function(function())
+        1-Map
+        2-Filter
+        3-reduce 
+        4-ForEach
+     -->
+     <script>
+        let form = document.getElementById('form')
+        let btn = document.getElementById('btn');
+        let req = document.getElementById('req');
+        let feild = document.getElementById('feild');
+        function vailate(){
+            if(feild.value == ''){
+                req.style.display = 'block';
+                return false;
+            }
+        }
+        // let num=[1,2,8,6,5,7,9];
+        // let newNum = num.map(function(val){
+        //     return val * val ;
+        // });
+        // let newNum = num.filter(function(el){
+        //     return el%2 ==0 ;
+        // })
+        // let newNum = num.filter((el)=> {
+        //         return el % 2 == 0;
+        //     })
+        // let newNum = num.filter((el) => el % 2 == 0 )
+        // let newNum = num.reduce(function(ocu,val){
+        //     return ocu +val;
+        // })
+            // num.forEach(function(val){
+            //     console.log(val);
+            // })
+        // console.log(num);
+        // console.log(newNum);
+        /*
+
+        */
+       //Search 
+    //    document.getElementById()
+    //    document.getElemenstByClassName()
+    //    document.getElementsByName()
+    //    document.getElementsByTagName()
+    //    document.querySelector('#id')
+    //    document.querySelector('.class')
+    //    document.querySelector('class')
+    // add element 
+    // let p = document.getElementById('p');
+    // p.addEventListener('click',function(){
+    //     p.style.color="blue";
+    // })
+    // p.innerText='welcome';
+    // p.style.color="red";
+    // p.removeChild();
+                // let app = document.getElementById('app').appendChild()
+                // document.createElement()
+                // Event 
+    //  </script>
+</body>
+</html>
