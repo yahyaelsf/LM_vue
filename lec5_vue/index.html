@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="user-goal"v-cloak>
+      <h2>My Course Goal</h2>
+      <input type="text" v-model="val"> <button @click="addGoal">Save</button><br> 
+     <p v-if="goals.length === 0">there is no goals in your list</p> 
+      <p v-else v-for="goal in goals" @click="deleteGoal(goal)">{{ goal }}</p>
+
+
+
+      <!-- <button v-on:click="addNum(5)">add 5</button>
+      <button v-on:click="deleteNum(5)">delete 5</button> --> 
+      <!-- <input type="text" v-on:input="setName($event , 'elsaftawi')">
+      <p>{{ name }}</p> -->
+      <!-- <form v-on:submit.prevent="EnterdForm">
+        <input type="text" v-model="name">
+        <p>{{ getName }}</p>
+      </form> -->
+    </section>
+    <script src="js/vue.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
+ 
