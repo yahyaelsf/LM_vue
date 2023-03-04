@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <style>
+        
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400);
+
+body {
+font: normal normal 13px/16px "Open Sans", sans-serif;
+background: #dfdfdf;
+}
+
+.container{
+padding: 20px;
+width: 300px;
+margin: 0 auto;
+margin-top: 40px;
+background: white;
+border-radius: 5px;}
+
+form {
+display: inline-block;
+}
+
+input{
+padding: 4px 15px 4px 5px;
+}
+
+#button{
+display: inline-block;
+background-color:#fc999b;
+color:#ffffff;
+border-radius: 5px;
+text-align:center;
+margin-top:2px;
+padding: 5px 15px;
+}
+
+#button:hover{
+cursor: pointer;
+opacity: .8;}
+
+ol {padding-left: 20px;}
+
+ol li {padding: 5px;color:#000;}
+
+ol li:nth-child(even){background: #dfdfdf;}
+
+.strike{text-decoration: line-through;}
+
+li:hover{
+  cursor: pointer;
+ }
+ .checkbox{
+    margin-left: 200px;
+ }
+
+    </style>
+</head>
+<body>
+
+    <div id="app" class="container">
+        <h2> To Do List</h2>
+        <p><em>Enter your task</em></p>
+        <form name="toDoList">
+            <input type="text" name="ListItem" v-model="val" />
+        </form>   
+        <div id="button" @click="addTask()">Add</div>
+        <br />
+        <ol>
+           <div v-if="yourTask.length > 0">
+            <h2>your Task</h2>
+            <li v-for="(item , index) in yourTask" :key="item">{{ item.name }}
+                 <input type="checkbox"
+                 class="checkbox" v-model="item.completed"></li>
+           </div>
+           <br>
+            <div v-if="finisedTask.length > 0">
+                <hr>
+                <h2>Finised Task</h2>
+                <li v-for="(item , index) in finisedTask" :key="item">{{ item.name }}
+                <input type="checkbox" class="checkbox" v-model="item.completed"></li>
+            </div>
+           
+        </ol>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script>
+    Vue.createApp({
+        data() {
+            return {
+                list:[],
+                val:''
+            }
+        },
+        methods: {
+            addTask(){
+                this.list.push({name:this.val , completed:false })
+                this.val = ''
+            }
+        },
+        computed:{
+            yourTask(){
+                return this.list.filter(x => !x.completed)
+            },
+            finisedTask() {
+                return this.list.filter(x => x.completed)
+            }
+        },
+    }).mount('#app')
+    </script>
+</body>
+</html>

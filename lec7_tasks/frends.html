@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+            <h1>FriendList</h1>
+    </header>
+    <section id="app">
+        <ul>
+        <li v-for="friend in friends">
+            <h2>{{ friend.name }}</h2>
+            <button @click="toggleDetails()">
+                {{ detailsAreVisible ? 'Hide' : 'Show' }} Details
+            </button>
+            <ul v-if="detailsAreVisible">
+                <li><strong>Phone:</strong> {{ friend.phone }}</li>
+                <li><strong>Email:</strong> {{ friend.email }}</li>
+            </ul>
+        </li>
+        </ul>
+    </section>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
